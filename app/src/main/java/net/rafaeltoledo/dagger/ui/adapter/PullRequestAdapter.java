@@ -4,7 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import net.rafaeltoledo.dagger.data.domain.BaseResponse;
 import net.rafaeltoledo.dagger.data.domain.PullRequest;
@@ -16,7 +19,12 @@ import rx.functions.Action1;
 
 public class PullRequestAdapter extends BaseAdapter implements Action1<BaseResponse<PullRequest>> {
 
-    private List<PullRequest> items = new ArrayList<>();
+    private final Picasso picasso;
+    private final List<PullRequest> items = new ArrayList<>();
+
+    public PullRequestAdapter(Picasso picasso) {
+        this.picasso = picasso;
+    }
 
     @Override
     public int getCount() {
@@ -40,8 +48,13 @@ public class PullRequestAdapter extends BaseAdapter implements Action1<BaseRespo
                     .inflate(android.R.layout.simple_list_item_1, parent, false);
         }
 
+        PullRequest pr = items.get(position);
         ((TextView) convertView.findViewById(android.R.id.text1)).setText(
-                items.get(position).getAuthor().getDisplayName());
+                pr.getAuthor().getDisplayName());
+        ((TextView) convertView.findViewById(android.R.id.text2)).setText(
+                pr.getTitle());
+        picasso.load(pr.getAuthor().getLinks().getAvatar().getHref()).into((ImageView)
+                convertView.findViewById(android.R.id.icon));
 
         return convertView;
     }

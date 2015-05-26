@@ -1,5 +1,7 @@
 package net.rafaeltoledo.dagger.ui;
 
+import com.squareup.picasso.Picasso;
+
 import net.rafaeltoledo.dagger.ui.adapter.PullRequestAdapter;
 
 import dagger.Module;
@@ -9,7 +11,7 @@ import dagger.Provides;
 public class UiModule {
 
     @Provides
-    PullRequestAdapter providePullRequestAdapter() {
-        return new PullRequestAdapter();
+    PullRequestAdapter providePullRequestAdapter(Picasso picasso) {
+        return new PullRequestAdapter(picasso);
     }
 }
