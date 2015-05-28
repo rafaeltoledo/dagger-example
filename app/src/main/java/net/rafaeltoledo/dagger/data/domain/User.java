@@ -2,19 +2,19 @@ package net.rafaeltoledo.dagger.data.domain;
 
 public class User {
 
-    private final String displayName;
-    private final UserLinks links;
+    private final String login;
+    private final String avatarUrl;
 
-    public User(String displayName, UserLinks links) {
-        this.displayName = displayName;
-        this.links = links;
+    public User(String login, String avatarUrl) {
+        this.login = login;
+        this.avatarUrl = avatarUrl;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getLogin() {
+        return login;
     }
 
-    public UserLinks getLinks() {
-        return links;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 }

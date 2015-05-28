@@ -19,7 +19,7 @@ public class ApiModule {
     @Provides
     @Singleton
     Endpoint provideEndpoint() {
-        return Endpoints.newFixedEndpoint("https://api.bitbucket.org/2.0");
+        return Endpoints.newFixedEndpoint("https://api.github.com/");
     }
 
     @Provides

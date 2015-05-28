@@ -2,22 +2,22 @@ package net.rafaeltoledo.dagger.data.domain;
 
 public class PullRequest {
 
-    private final String description;
-    private final User author;
+    private final String body;
+    private final User user;
     private final String title;
 
-    public PullRequest(String description, User author, String title) {
-        this.description = description;
-        this.author = author;
+    public PullRequest(String body, User user, String title) {
+        this.body = body;
+        this.user = user;
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getBody() {
+        return body;
     }
 
-    public User getAuthor() {
-        return author;
+    public User getUser() {
+        return user;
     }
 
     public String getTitle() {
